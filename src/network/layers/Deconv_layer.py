@@ -2,7 +2,7 @@ import tensorflow as tf
 
 class Deconv_layer():
 
-    def __init__(self, layer_input, filter, output_shape, strides, padding, w, b):
+    def __init__(self, layer_input, filter, output_shape, strides, w, b):
         self.layer_input = layer_input
         self.filter = filter
         self.output_shape = output_shape
