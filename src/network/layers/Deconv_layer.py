@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-class Decov_layer():
+class Deconv_layer():
 
     def __init__(self, layer_input, filter, output_shape, strides, padding, w, b):
         self.layer_input = layer_input
