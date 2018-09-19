@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-class Conv_layer():
+class convolution_layer_3d():
 
     def __init__(self, layer_input, filter, strides, w, initializer):
         self.layer_input = layer_input

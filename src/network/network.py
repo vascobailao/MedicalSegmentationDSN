@@ -1,6 +1,12 @@
 import tensorflow as tf
-from  import convolution_layer_3d, deconvolution_layer_3d, prelu
+from MedicalSegmentationDSN.src.network.layers import convolution_layer_3d, deconvolution_layer_3d
 
+
+def prelu(x):
+    with tf.variable_scope('prelu'):
+        _alpha = tf.get_variable('alpha', shape=x.get_shape()[-1], dtype=x.dtype,
+                                 initializer=tf.constant_initializer(0.1))
+        return tf.maximum(0.0, x) + _alpha * tf.minimum(0.0, x)
 
 # interpretation of Vnet
 def v_net(tf_input, init_channels, expand_input=True):
