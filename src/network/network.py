@@ -14,7 +14,7 @@ def v_net(tf_input, init_channels, expand_input=True):
     if expand_input:
         n_channels = 16
         with tf.variable_scope('encoder_level_0'):
-            c0 = prelu(convolution_layer_3d.convolution_layer_3d(tf_input, [5, 5, 5, init_channels, n_channels], [1, 1, 1, 1, 1]))
+            c0 = prelu(convolution_layer_3d.convolution_layer_3d(tf_input, [5, 5, 5, init_channels, n_channels], [1, 1, 1, 1, 1], initilizaer))
     else:
         n_channels = init_channels
         with tf.variable_scope('encoder_level_0'):
