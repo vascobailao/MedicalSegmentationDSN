@@ -1,5 +1,5 @@
 import tensorflow as tf
-from VNet import v_net
+from MedicalSegmentationDSN.src.network.network import v_net
 from tensorflow.python.lib.io import file_io as file_io
 from random import shuffle as shuffle_fn
 
