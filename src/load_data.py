@@ -9,7 +9,7 @@ import numpy as np
 from scipy.misc import imresize
 from skimage.transform import resize
 from skimage.exposure import equalize_adapthist, equalize_hist
-import sitk
+import SimpleITK as sitk
 
 def img_resize(imgs, img_rows, img_cols, equalize=True):
 
