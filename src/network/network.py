@@ -14,7 +14,7 @@ def v_net(tf_input, init_channels, expand_input=True):
     if expand_input:
         n_channels = 16
         with tf.variable_scope('encoder_level_0'):
-            c0 = prelu(convolution_layer_3d(tf_input, [5, 5, 5, init_channels, n_channels], [1, 1, 1, 1, 1]))
+            c0 = prelu(convolution_layer_3d.convolution_layer_3d(tf_input, [5, 5, 5, init_channels, n_channels], [1, 1, 1, 1, 1]))
     else:
         n_channels = init_channels
         with tf.variable_scope('encoder_level_0'):
@@ -23,7 +23,7 @@ def v_net(tf_input, init_channels, expand_input=True):
     with tf.variable_scope('encoder_level_1'):
         # convolution 5x5x5 filter with stride 1 (keeps same dimension as input)
         with tf.variable_scope('convolution_1'):
-            c1 = prelu(convolution_layer_3d(c0, [5, 5, 5, n_channels, n_channels], [1, 1, 1, 1, 1]))
+            c1 = prelu(convolution_layer_3d.convolution_layer_3d(c0, [5, 5, 5, n_channels, n_channels], [1, 1, 1, 1, 1]))
         # sum with input (part of learning residual function)
         c11 = c1 + c0
         # use convolution for down sampling instead of pooling (double channels half dimension)
